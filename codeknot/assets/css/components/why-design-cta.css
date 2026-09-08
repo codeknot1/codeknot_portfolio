@@ -1,0 +1,142 @@
+/* ============================================
+   CODEKNOT — Why CODEKNOT
+   ============================================ */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.why-item {
+  padding: var(--space-lg);
+  border-left: 2px solid var(--border-color);
+  transition: border-color var(--duration-base) var(--ease-standard);
+}
+.why-item:hover { border-left-color: var(--accent-cyan); }
+
+.why-item .icon-wrap {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-cyan);
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   CODEKNOT — Design Showcase
+   ============================================ */
+
+.design-tabs { margin-top: var(--space-xl); }
+
+.design-masonry {
+  columns: 3 220px;
+  column-gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.design-item {
+  break-inside: avoid;
+  margin-bottom: var(--space-lg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  cursor: zoom-in;
+  position: relative;
+}
+.design-item img { width: 100%; display: block; transition: transform var(--duration-slow) var(--ease-standard); }
+.design-item:hover img { transform: scale(1.04); }
+.design-item[hidden] { display: none; }
+
+.design-item .tag {
+  position: absolute; top: var(--space-sm); left: var(--space-sm);
+  font-size: var(--fs-label);
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(8px);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+}
+
+.design-empty {
+  margin-top: var(--space-2xl);
+  border: 1px dashed var(--border-color-hover);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl) var(--space-xl);
+  text-align: center;
+}
+.design-empty .icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-magenta);
+  margin: 0 auto var(--space-lg);
+}
+.design-empty p { max-width: 420px; margin: var(--space-sm) auto 0; }
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed; inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(2, 3, 6, 0.92);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.lightbox-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+.lightbox-overlay img { max-width: 85vw; max-height: 80vh; border-radius: var(--radius-md); }
+
+.lightbox-close, .lightbox-prev, .lightbox-next {
+  position: absolute;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card-glass);
+  border: 1px solid var(--border-color-hover);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-primary);
+}
+.lightbox-close { top: var(--space-lg); right: var(--space-lg); }
+.lightbox-prev { left: var(--space-lg); top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: var(--space-lg); top: 50%; transform: translateY(-50%); }
+
+/* ============================================
+   CODEKNOT — CTA
+   ============================================ */
+
+.cta-section {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: var(--space-3xl) var(--space-2xl);
+  text-align: left;
+  background: var(--bg-dark-panel);
+  border: 1px solid var(--bg-dark-panel);
+  color: var(--text-on-dark);
+}
+
+.cta-section .text-h1,
+.cta-section .text-body { color: var(--text-on-dark); }
+.cta-section .text-body { color: var(--text-on-dark-secondary); }
+
+.cta-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: var(--gradient-glow);
+  top: -30%; right: -10%;
+  pointer-events: none;
+}
+
+.cta-content { position: relative; max-width: 620px; }
+.cta-actions { display: flex; gap: var(--space-md); margin-top: var(--space-xl); flex-wrap: wrap; }
+
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .design-masonry { columns: 2 200px; }
+}
+@media (max-width: 640px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .design-masonry { columns: 1; }
+  .cta-section { padding: var(--space-2xl) var(--space-lg); }
+  .cta-actions .btn { width: 100%; }
+}

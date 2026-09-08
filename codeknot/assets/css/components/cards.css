@@ -1,0 +1,107 @@
+/* ============================================
+   CODEKNOT — Cards (v2: soft shadows, no neon glow)
+   ============================================ */
+
+.card-base {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--duration-base) var(--ease-standard),
+              box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+/* Service card — compact, content-forward */
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: border-color var(--duration-base) var(--ease-standard),
+              box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.service-card:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-3px);
+}
+
+.service-card .icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-purple);
+}
+
+.service-card .card-arrow {
+  margin-top: auto;
+  align-self: flex-start;
+  color: var(--text-tertiary);
+  transition: transform var(--duration-base) var(--ease-standard), color var(--duration-base);
+}
+
+.service-card:hover .card-arrow {
+  color: var(--accent-purple);
+  transform: translateX(4px);
+}
+
+/* Note: .project-card layout lives in components/projects.css (Zuleno-style
+   stacked card: image, category, title, description, View Project link) */
+
+/* Stat card — minimal, number-led, gradient reserved for the number only */
+.stat-card { text-align: left; }
+.stat-card .stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.6vw, 2.5rem);
+  font-weight: var(--fw-bold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Tech card */
+.tech-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  display: flex; align-items: center; gap: var(--space-sm);
+  background: var(--bg-secondary);
+}
+.tech-card:hover { border-color: var(--border-color-hover); }
+
+/* Glass variant — plain white card with soft shadow, no blur */
+.card-glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Gradient-border utility — reserved for one featured element at a time */
+.card-gradient-border {
+  position: relative;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+.card-gradient-border::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-border);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
