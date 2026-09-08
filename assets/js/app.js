@@ -7,18 +7,39 @@
   "use strict";
 
   /* ============ CONFIG ============ */
-  var SITE_CONFIG = {
-    companyName: "CODEKNOT",
-    tagline: "WEB DEVELOPMENT & SOLUTIONS",
-    whatsapp: "923370660696",
-    whatsappDefaultMessage: "Hello CODEKNOT, I would like to discuss a project.",
-    email: "",
-    phone: "",
-    address: "",
-    logo: "assets/images/logo/codeknot-logo.png",
-    social: { facebook: "", instagram: "", linkedin: "", github: "", twitter: "", youtube: "" },
-    stats: { projectsDelivered: 0, happyClients: 0, technologies: 25, yearsExperience: 0 },
-  };
+ var SITE_CONFIG = {
+  companyName: "CODEKNOT",
+
+  tagline: "WEB DEVELOPMENT & SOLUTIONS",
+
+  whatsapp: "923370660696",
+
+  whatsappDefaultMessage: "Hello CODEKNOT, I would like to discuss a project.",
+
+  email: "",
+
+  phone: "",
+
+  address: "",
+
+  logo: "assets/images/logo/codeknot-logo.png",
+
+  social: {
+    facebook: "",
+    instagram: "",
+    linkedin: "",
+    github: "",
+    twitter: "",
+    youtube: ""
+  },
+
+  stats: {
+    projectsDelivered: 40,
+    happyClients: 50,
+    technologies: 25,
+    yearsExperience: 2
+  }
+};
 
   function getWhatsAppUrl(customMessage) {
     var message = encodeURIComponent(customMessage || SITE_CONFIG.whatsappDefaultMessage);
