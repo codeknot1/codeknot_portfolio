@@ -1,0 +1,167 @@
+/* ============================================
+   CODEKNOT — Solutions
+   ============================================ */
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.solution-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  background: var(--bg-card);
+}
+
+.solution-card .icon-wrap {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-magenta);
+  margin-bottom: var(--space-lg);
+}
+
+.solution-card ul { margin-top: var(--space-md); display: flex; flex-direction: column; gap: var(--space-xs); }
+.solution-card li {
+  font-size: var(--fs-body-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+.solution-card li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   CODEKNOT — Process
+   ============================================ */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.process-step {
+  position: relative;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.process-step .step-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: var(--fw-bold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.process-step h3 { margin-top: var(--space-md); }
+.process-step p { margin-top: var(--space-xs); }
+
+/* ============================================
+   CODEKNOT — Contact
+   ============================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-3xl);
+}
+
+.contact-info-item {
+  display: flex;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+}
+.contact-info-item:last-of-type { border-bottom: none; }
+
+.contact-info-item .icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-subtle);
+  color: var(--accent-cyan);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-social { display: flex; gap: var(--space-sm); margin-top: var(--space-xl); }
+.contact-social a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+}
+.contact-social a:hover { border-color: var(--accent-cyan); color: var(--text-primary); }
+
+.contact-form-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+
+/* ============================================
+   CODEKNOT — Footer
+   ============================================ */
+
+.site-footer { border-top: 1px solid var(--border-color); padding-top: var(--space-3xl); }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.footer-brand img { height: 32px; margin-bottom: var(--space-md); }
+.footer-brand p { max-width: 280px; margin-top: var(--space-md); }
+
+.footer-col h4 {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-md);
+}
+.footer-col ul { display: flex; flex-direction: column; gap: var(--space-sm); }
+.footer-col a { font-size: var(--fs-body-sm); color: var(--text-secondary); transition: color var(--duration-fast); }
+.footer-col a:hover { color: var(--text-primary); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-block: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+@media (max-width: 1024px) {
+  .solutions-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+}

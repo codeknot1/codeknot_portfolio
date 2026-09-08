@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEKNOT — Design System Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/mobile-fixes.css">
+<style>
+  .guide-section { padding: var(--space-3xl) 0; border-bottom: 1px solid var(--border-color); }
+  .guide-label { font-family: var(--font-body); font-size: var(--fs-label); color: var(--accent-cyan); font-weight: var(--fw-semibold); margin-bottom: var(--space-sm); display: block; }
+  .swatch-row { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-lg); }
+  .swatch { width: 160px; }
+  .swatch-color { height: 90px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: var(--space-xs); }
+  .swatch-name { font-size: var(--fs-body-sm); font-weight: var(--fw-medium); }
+  .swatch-hex { font-size: var(--fs-label); color: var(--text-tertiary); }
+  .type-row { margin-bottom: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px dashed var(--border-color); }
+  .type-row:last-child { border: none; }
+  .btn-row { display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center; margin-top: var(--space-lg); }
+  .icon-wrap svg { width: 22px; height: 22px; }
+  .hero-preview {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(ellipse 800px 500px at 15% 20%, rgba(124,92,252,0.18), transparent),
+                radial-gradient(ellipse 600px 400px at 85% 70%, rgba(34,211,238,0.12), transparent);
+    overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    opacity: 0.5;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: var(--space-xs);
+    border: 1px solid var(--border-color-hover); border-radius: var(--radius-pill);
+    padding: 0.5rem 1rem; font-size: var(--fs-label); color: var(--text-secondary);
+    background: var(--bg-card-glass); backdrop-filter: blur(12px);
+  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+  .float-card {
+    position: absolute; padding: var(--space-md); width: 220px;
+  }
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl); margin-top: var(--space-xl); }
+  @media (max-width: 768px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+  header.site-header { border-bottom: 1px solid var(--border-color); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding-block: var(--space-lg);">
+    <strong style="font-family:var(--font-heading); font-size:1.1rem;">CODEKNOT<span style="color:var(--accent-cyan)">.</span></strong>
+    <span class="text-label">Design System Preview — Phase 2</span>
+  </div>
+</header>
+
+<!-- HERO PREVIEW -->
+<section class="hero-preview">
+  <div class="hero-grid-bg"></div>
+  <div class="container" style="position:relative; display:grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-2xl); align-items:center;">
+    <div>
+      <span class="hero-badge"><span class="dot"></span> Web Development &amp; Digital Solutions</span>
+      <h1 class="text-hero" style="margin-top: var(--space-lg);">We build digital experiences that move businesses forward.</h1>
+      <p class="text-subheading" style="margin-top: var(--space-lg); max-width: 520px;">CODEKNOT delivers modern websites, powerful web applications, e-commerce platforms and creative digital solutions built around real business goals.</p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-primary">Start a project</a>
+        <a href="#" class="btn btn-secondary">Explore our work</a>
+      </div>
+    </div>
+    <div style="position:relative; height: 420px;">
+      <div class="float-card card-glass animate-float" style="top:10%; left:5%;">
+        <span class="text-label">Live preview</span>
+        <div style="margin-top:8px; height:8px; width:70%; border-radius:4px; background:var(--gradient-primary);"></div>
+      </div>
+      <div class="float-card card-gradient-border animate-float" style="top:45%; left:30%; animation-delay:-2s; background:var(--bg-card);">
+        <span class="text-label">Deploy status</span>
+        <div style="display:flex; align-items:center; gap:6px; margin-top:8px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--success);"></span>
+          <span class="text-body-sm" style="color:var(--text-primary)">Build passing</span>
+        </div>
+      </div>
+      <div class="float-card card-glass animate-float" style="top:75%; left:2%; animation-delay:-1s;">
+        <span class="text-label">API</span>
+        <div class="text-body-sm" style="color:var(--text-primary); margin-top:4px;">/v1/orders — 200 OK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="guide-section">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-number">120+</div><div class="text-body-sm">Projects delivered</div></div>
+      <div class="stat-card"><div class="stat-number">80+</div><div class="text-body-sm">Happy clients</div></div>
+      <div class="stat-card"><div class="stat-number">25+</div><div class="text-body-sm">Technologies</div></div>
+      <div class="stat-card"><div class="stat-number">5+</div><div class="text-body-sm">Years experience</div></div>
+    </div>
+    <p class="text-label" style="margin-top:var(--space-lg);">Placeholder values shown for layout — real numbers come from SITE_CONFIG.stats</p>
+  </div>
+</section>
+
+<!-- COLOR -->
+<section class="guide-section">
+  <div class="container">
+    <span class="guide-label">Color</span>
+    <h2 class="text-h1">Palette</h2>
+    <div class="swatch-row">
+      <div class="swatch"><div class="swatch-color" style="background:var(--bg-primary)"></div><div class="swatch-name">bg-primary</div><div class="swatch-hex">#05070C</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--bg-card)"></div><div class="swatch-name">bg-card</div><div class="swatch-hex">#10141F</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--accent-cyan)"></div><div class="swatch-name">accent-cyan</div><div class="swatch-hex">#22D3EE</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--accent-blue)"></div><div class="swatch-name">accent-blue</div><div class="swatch-hex">#4F8CFF</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--accent-purple)"></div><div class="swatch-name">accent-purple</div><div class="swatch-hex">#7C5CFC</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--accent-magenta)"></div><div class="swatch-name">accent-magenta</div><div class="swatch-hex">#E048C9</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--gradient-primary)"></div><div class="swatch-name">gradient-primary</div><div class="swatch-hex">cyan→blue→purple→magenta</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--success)"></div><div class="swatch-name">success</div><div class="swatch-hex">#34D399</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:var(--danger)"></div><div class="swatch-name">danger</div><div class="swatch-hex">#F87171</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="guide-section">
+  <div class="container">
+    <span class="guide-label">Type</span>
+    <h2 class="text-h1" style="margin-bottom: var(--space-xl);">Scale — Plus Jakarta Sans / Inter</h2>
+    <div class="type-row"><div class="text-hero">Hero heading</div></div>
+    <div class="type-row"><div class="text-h1">Section heading</div></div>
+    <div class="type-row"><div class="text-h2">Subheading level</div></div>
+    <div class="type-row"><div class="text-h3">Card / component heading</div></div>
+    <div class="type-row"><p class="text-body" style="max-width:640px;">Body text — Inter at 17px with 1.65 line-height, kept under 80 characters per line for comfortable reading across service descriptions and case studies.</p></div>
+    <div class="type-row"><span class="text-label">Small label / meta text</span></div>
+  </div>
+</section>
+
+<!-- BUTTONS -->
+<section class="guide-section">
+  <div class="container">
+    <span class="guide-label">Components</span>
+    <h2 class="text-h1" style="margin-bottom: var(--space-md);">Buttons</h2>
+    <div class="btn-row">
+      <a href="#" class="btn btn-primary">Start a project</a>
+      <a href="#" class="btn btn-secondary">Explore our work</a>
+      <a href="#" class="btn btn-ghost">Learn more</a>
+      <a href="#" class="btn btn-primary btn-sm">Small primary</a>
+      <button class="btn-icon" aria-label="Scroll to top">↑</button>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="guide-section">
+  <div class="container">
+    <span class="guide-label">Components</span>
+    <h2 class="text-h1" style="margin-bottom: var(--space-lg);">Cards</h2>
+    <div class="grid grid-3">
+      <div class="service-card">
+        <div class="icon-wrap">◆</div>
+        <div>
+          <h3 class="text-h3">Web Application Development</h3>
+          <p class="text-body-sm" style="margin-top:6px;">Custom dashboards, portals and business systems built to scale.</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </div>
+      <div class="tech-card">
+        <span style="width:32px;height:32px;border-radius:8px;background:var(--gradient-subtle);display:flex;align-items:center;justify-content:center;">JS</span>
+        <div>
+          <div class="text-body-sm" style="color:var(--text-primary)">Next.js</div>
+          <div class="text-label">Frontend</div>
+        </div>
+      </div>
+      <div class="card-gradient-border" style="padding: var(--space-lg);">
+        <span class="text-label">Case study</span>
+        <h3 class="text-h3" style="margin-top:6px;">Gradient-border variant</h3>
+        <p class="text-body-sm" style="margin-top:6px;">Used selectively for featured/highlighted content only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMS -->
+<section class="guide-section">
+  <div class="container">
+    <span class="guide-label">Components</span>
+    <h2 class="text-h1" style="margin-bottom: var(--space-lg);">Form elements</h2>
+    <div style="max-width:420px;">
+      <div class="form-group">
+        <label class="form-label">Full name</label>
+        <input class="form-input" type="text" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service</label>
+        <select class="form-select">
+          <option>Website Development</option>
+          <option>Web Application</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us about your project"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;">Send message</button>
+    </div>
+  </div>
+</section>
+
+<footer style="padding: var(--space-xl) 0;">
+  <div class="container text-label">CODEKNOT design system — v1.0 preview</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* ============================================
+   CODEKNOT — Services Section
+   ============================================ */
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.filter-tab {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.filter-tab:hover { color: var(--text-primary); border-color: var(--border-color-hover); }
+
+.filter-tab.is-active {
+  color: var(--text-on-accent);
+  background: var(--gradient-primary);
+  border-color: transparent;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.service-card { cursor: pointer; }
+.service-card[hidden] { display: none; }
+
+.services-more {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+/* ---- Modal (shared base, used for service detail + case study) ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(2, 3, 6, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+.modal-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color-hover);
+  border-radius: var(--radius-lg);
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: var(--space-2xl);
+  position: relative;
+  transform: translateY(16px) scale(0.98);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.modal-overlay.is-open .modal-panel { transform: translateY(0) scale(1); }
+
+.modal-close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+}
+.modal-close:hover { color: var(--text-primary); border-color: var(--border-color-hover); }
+
+.modal-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-cyan);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .modal-panel { padding: var(--space-xl); }
+}

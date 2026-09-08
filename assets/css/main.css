@@ -1,0 +1,36 @@
+/* CODEKNOT — Master Stylesheet */
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+@import url("components/buttons.css");
+@import url("components/cards.css");
+@import url("components/forms.css");
+@import url("components/navbar.css");
+@import url("components/layout.css");
+@import url("components/floating-elements.css");
+@import url("components/services.css");
+@import url("components/technologies.css");
+@import url("components/projects.css");
+@import url("components/solutions-process-contact-footer.css");
+@import url("components/why-design-cta.css");
+@import url("utilities/animations.css");
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.grid { display: grid; gap: var(--space-lg); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+
